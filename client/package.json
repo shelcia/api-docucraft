@@ -1,0 +1,96 @@
+{
+  "name": "soft-ui-dashboard-pro-react",
+  "version": "4.0.2",
+  "author": "Creative Tim",
+  "license": "SEE LICENSE IN <https://www.creative-tim.com/license>",
+  "description": "React version of Soft UI Dashboard PRO by Creative Tim",
+  "bugs": {
+    "url": "https://github.com/creativetimofficial/ct-soft-ui-dashboard-pro-react/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/creativetimofficial/ct-soft-ui-dashboard-pro-react.git"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
+    "install:peer-deps": "npm install --legacy-peer-deps"
+  },
+  "dependencies": {
+    "@emotion/cache": "11.11.0",
+    "@emotion/react": "11.11.0",
+    "@emotion/styled": "11.11.0",
+    "@fontsource-variable/figtree": "^5.0.18",
+    "@mui/icons-material": "5.11.16",
+    "@mui/material": "5.13.2",
+    "@mui/styled-engine": "5.13.2",
+    "@pathofdev/react-tag-input": "1.0.7",
+    "@react-leaflet/core": "2.1.0",
+    "@tabler/icons-react": "^2.42.0",
+    "@testing-library/jest-dom": "5.16.5",
+    "@testing-library/react": "14.0.0",
+    "@testing-library/user-event": "14.4.3",
+    "axios": "^1.6.2",
+    "chroma-js": "2.4.2",
+    "draft-convert": "^2.1.13",
+    "draft-js": "^0.11.7",
+    "dropzone": "5.9.3",
+    "flatpickr": "4.6.13",
+    "formik": "2.2.9",
+    "html-react-parser": "3.0.16",
+    "leaflet": "1.9.4",
+    "prop-types": "15.8.1",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "react-draft-wysiwyg": "^1.15.0",
+    "react-flatpickr": "3.10.13",
+    "react-helmet-async": "^2.0.1",
+    "react-leaflet": "4.2.1",
+    "react-router-dom": "6.11.2",
+    "react-scripts": "5.0.1",
+    "react-select": "5.7.3",
+    "react-table": "7.8.0",
+    "sweetalert2": "11.7.5",
+    "uuid": "9.0.0",
+    "vanilla-tilt": "1.8.0",
+    "web-vitals": "3.3.1",
+    "yup": "1.1.1"
+  },
+  "devDependencies": {
+    "eslint": "8.41.0",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-react": "7.32.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "prettier": "2.8.8"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "overrides": {
+    "svgo": "3.0.2"
+  }
+}
