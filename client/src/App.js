@@ -13,6 +13,8 @@ import theme from "assets/theme/index";
 import themeDark from "assets/theme-dark";
 
 import routes from "routes";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const { pathname } = useLocation();
@@ -53,6 +55,7 @@ const App = () => {
     <ThemeProvider theme={darkTheme ? themeDark : theme}>
       <CssBaseline />
       <Routes>{getRoutes(routes)}</Routes>
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
     </ThemeProvider>
   );
 };

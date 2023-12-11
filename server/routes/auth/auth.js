@@ -21,12 +21,12 @@ const loginSchema = Joi.object({
 //SIGNUP USER
 router.post("/register", async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { name, email, password } = req.body;
 
     // Check if email already exists
-    const emailExist = await User.findOne({ email });
-    if (emailExist) {
-      return handleError(res, 400, "Email Id already exists");
+    const userExist = await User.findOne({ email });
+    if (userExist) {
+      return res.status(409).json({ error: "Email Id already exists" });
     }
 
     // Hash the password
@@ -39,17 +39,28 @@ router.post("/register", async (req, res) => {
     // Validate user inputs
     const { error } = await registerSchema.validateAsync(req.body);
     if (error) {
-      return handleError(res, 400, error);
+      return res
+        .status(400)
+        .json({ status: "error", message: error.details[0].message });
     }
 
     // Create a new user
-    const user = new User({
-      ...req.body,
+    const user = await User.create({
+      name,
+      email,
       password: hashedPassword,
-      token,
     });
 
-    await user.save();
+    if (user) {
+      res.status(201).json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        token,
+      });
+    } else {
+      res.status(400).json({ message: "Invalid user data" });
+    }
   } catch (error) {
     res.status(500).json({ status: "500", message: "Internal Server Error" });
   }

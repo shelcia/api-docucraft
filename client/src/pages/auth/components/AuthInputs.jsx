@@ -3,7 +3,13 @@ import SoftInput from "components/SoftInput";
 import SoftTypography from "components/SoftTypography";
 import React from "react";
 
-const AuthInputs = ({ name = "", type = "text", placeholder = "" }) => {
+const AuthInputs = ({
+  name = "",
+  type = "text",
+  placeholder = "",
+  isPasswordConfirmation = false,
+  onChange,
+}) => {
   return (
     <>
       <SoftBox mb={2} lineHeight={1.25}>
@@ -12,7 +18,20 @@ const AuthInputs = ({ name = "", type = "text", placeholder = "" }) => {
             {name}
           </SoftTypography>
         </SoftBox>
-        <SoftInput type={type} placeholder={placeholder} />
+        <SoftInput
+          type={type}
+          placeholder={placeholder}
+          onChange={onChange}
+          autoComplete={type === "password" ? "new-password" : "off"}
+        />
+        {isPasswordConfirmation && (
+          <SoftInput
+            type="password"
+            placeholder="Confirm Password"
+            onChange={onChange}
+            autoComplete="new-password"
+          />
+        )}
       </SoftBox>
     </>
   );

@@ -13,7 +13,7 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
@@ -23,24 +23,46 @@ import AuthLayout from "layouts/authentication/AuthLayout";
 import BackgroundImg from "assets/images/curved-images/curved10.jpg";
 import AuthInputs from "./components/AuthInputs";
 
-import { apiAuth } from "../../services/models/authModel";
+// import { apiAuth } from "../../services/models/authModel";
 import { useState } from "react";
+import { toast } from "react-toastify";
+import { BACKEND_URL } from "services/api";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
   });
 
   const handleInputs = (e) => {
-    const { name, value } = e;
+    e.preventDefault();
+    const { name, value } = e.target;
     setInputs({ ...inputs, [name]: value });
   };
 
-  const login = () => {
-    apiAuth.getSingle("signup").then((res) => {
-      console.log(res);
-    });
+  const login = async () => {
+    const { email, password } = inputs;
+    try {
+      const response = await fetch(`${BACKEND_URL}/auth/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success("Login Successfull 🎉", { autoClose: 3000 });
+        navigate("/");
+      } else {
+        console.error("Login failed:", data.error || "Unknown error");
+      }
+    } catch (error) {
+      toast.error(error.message, { autoClose: 3000 });
+    }
   };
 
   return (
@@ -55,22 +77,17 @@ const Login = () => {
           type="email"
           placeholder="Email"
           value={inputs.email}
-          onChange={() => handleInputs()}
+          onChange={handleInputs}
         />
         <AuthInputs
           name="password"
           type="password"
           placeholder="Password"
           value={inputs.password}
-          onChange={() => handleInputs()}
+          onChange={handleInputs}
         />
         <SoftBox mt={4} mb={1}>
-          <SoftButton
-            variant="gradient"
-            color="info"
-            fullWidth
-            onClick={() => login()}
-          >
+          <SoftButton variant="gradient" color="info" fullWidth onClick={login}>
             sign in
           </SoftButton>
         </SoftBox>
