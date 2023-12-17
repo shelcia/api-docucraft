@@ -16,11 +16,16 @@ Coded by www.creative-tim.com
 // @mui material components
 import { Grid, Link } from "@mui/material";
 
-import {
-  IconBrandGithub,
-  IconBrandBehance,
-  IconBrandMedium,
-} from "@tabler/icons-react";
+// import {
+//   IconBrandGithub,
+//   IconBrandBehance,
+//   IconBrandMedium,
+// } from "@tabler/icons-react";
+
+import GithubIcon from "../../../assets/images/icons/github.svg";
+import LinkedinIcon from "../../../assets/images/icons/linkedin.svg";
+import BehanceIcon from "../../../assets/images/icons/behance.svg";
+import MediumIcon from "../../../assets/images/icons/medium.svg";
 
 // Soft UI Dashboard PRO React components
 import SoftBox from "components/SoftBox";
@@ -37,17 +42,42 @@ function Footer() {
                 href="https://github.com/shelcia/api-docucraft"
                 target="_blank"
               >
-                <IconBrandGithub fontSize="small" />
+                <img
+                  src={GithubIcon}
+                  alt="github-icon"
+                  width={40}
+                  height={40}
+                />
+              </Link>
+            </SoftBox>
+            <SoftBox mr={3} color="secondary">
+              <Link href="https://www.linkedin.com/in/shelcia/" target="_blank">
+                <img
+                  src={LinkedinIcon}
+                  alt="linkedin-icon"
+                  width={40}
+                  height={40}
+                />
               </Link>
             </SoftBox>
             <SoftBox mr={3} color="secondary">
               <Link href="https://medium.com/@shelcia" target="_blank">
-                <IconBrandMedium fontSize="small" />
+                <img
+                  src={MediumIcon}
+                  alt="medium-icon"
+                  width={40}
+                  height={40}
+                />
               </Link>
             </SoftBox>
             <SoftBox mr={3} color="secondary">
               <Link href="https://www.behance.net/shelcia/" target="_blank">
-                <IconBrandBehance fontSize="small" />
+                <img
+                  src={BehanceIcon}
+                  alt="behance-icon"
+                  width={40}
+                  height={40}
+                />
               </Link>
             </SoftBox>
           </SoftBox>
@@ -55,11 +85,7 @@ function Footer() {
         <Grid item xs={12} lg={8} sx={{ textAlign: "center" }}>
           <SoftTypography variant="body2" color="secondary">
             Pages from Creative Tim. Developed By{"  "}
-            <Link
-              href="https://www.shelcia-dev.me/"
-              target="_blank"
-              sx={{ textDecoration: "underline" }}
-            >
+            <Link href="https://www.shelcia-dev.me/" target="_blank" sx={{}}>
               Shelcia
             </Link>
           </SoftTypography>

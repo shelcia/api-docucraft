@@ -25,7 +25,7 @@ import SoftAvatar from "components/SoftAvatar";
 
 import breakpoints from "assets/theme/base/breakpoints";
 
-import curved0 from "assets/images/curved-images/curved0.jpg";
+// import curved0 from "assets/images/curved-images/curved0.jpg";
 
 const Header = ({ name, image, bgImg }) => {
   const [tabsOrientation, setTabsOrientation] = useState("horizontal");
@@ -67,11 +67,11 @@ const Header = ({ name, image, bgImg }) => {
               ? `${linearGradient(
                   rgba(gradients.info.main, 0.6),
                   rgba(gradients.info.state, 0.6)
-                )}, url(${image})`
+                )}, url(${bgImg})`
               : `${linearGradient(
                   rgba(gradients.info.main, 0.6),
                   rgba(gradients.info.state, 0.6)
-                )}, url(${curved0})`,
+                )}, url(${bgImg})`,
 
           backgroundSize: "cover",
           backgroundPosition: "50%",
