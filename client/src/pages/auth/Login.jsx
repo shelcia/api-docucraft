@@ -42,6 +42,11 @@ const Login = () => {
       console.log(res);
     });
   };
+  const handleKeyPress = (e) => {//Added this feature might resolve this issue
+    if (e.key === "Enter") {
+      login();
+    }
+  };
 
   return (
     <AuthLayout
@@ -55,21 +60,22 @@ const Login = () => {
           type="email"
           placeholder="Email"
           value={inputs.email}
-          onChange={() => handleInputs()}
+          onChange={handleInputs}
         />
         <AuthInputs
           name="password"
           type="password"
           placeholder="Password"
           value={inputs.password}
-          onChange={() => handleInputs()}
+          onChange={handleInputs}
+          onKeyPress={handleKeyPress}
         />
         <SoftBox mt={4} mb={1}>
           <SoftButton
             variant="gradient"
             color="info"
             fullWidth
-            onClick={() => login()}
+            onClick={login}
           >
             sign in
           </SoftButton>
