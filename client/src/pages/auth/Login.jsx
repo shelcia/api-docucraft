@@ -49,7 +49,7 @@ const Login = () => {
       description="Enter your email and password to sign in"
       image={BackgroundImg}
     >
-      <SoftBox component="form" role="form">
+      <SoftBox component="form" role="form" onSubmit={login}>
         <AuthInputs
           name="email"
           type="email"
@@ -69,7 +69,7 @@ const Login = () => {
             variant="gradient"
             color="info"
             fullWidth
-            onClick={() => login()}
+            type="submit"
           >
             sign in
           </SoftButton>
