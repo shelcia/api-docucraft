@@ -32,9 +32,21 @@ Configure environment variables to tailor DocuCraft to your specific development
 Adding Data:
 
 Utilize the "Add" button to effortlessly populate DocuCraft with your API details, including methods, URLs, parameters, and headers.
+
+
+
 Code Generation:
 
 Click the button to generate JavaScript code (using Axios) based on your configured API. This generated code can be seamlessly integrated into your projects.
 Status Code Responses:
 
 Ensure you define responses for critical HTTP status codes, such as 400 and 500, to guide developers in handling error scenarios.
+<h2>Project Contributors</h2>
+
+<a href="https://github.com/shelcia/api-docucraft/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=shelcia/api-docucraft" />
+</a>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<h2>Contributing is fun🧡</h2>
